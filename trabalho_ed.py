@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 from random import randint
 
 class Node:
@@ -76,7 +75,3 @@ for i in range(1, copos+1):
 
 
 lista.peek(3)
-=======
-class Node:
-    
->>>>>>> c39eeda246b8afee7c4ce3f572f55c4e6300bad8
