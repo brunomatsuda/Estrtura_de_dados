@@ -24,8 +24,8 @@ class DoubleLinkedList:
         copo.prev = self.tail
         self.tail = copo
 
-    def remove_beggining(self):
-        print(f"self.head1={self.head.key}")
+    def delete_front(self):
+        #print(f"self.head1={self.head.key}")
         if not self.head:
             return
         if self.head.next:
@@ -33,9 +33,9 @@ class DoubleLinkedList:
         else:
             self.tail = None
         self.head = self.head.next
-        print(f"self.head2={self.head.key}")
+        #print(f"self.head2={self.head.key}")
 
-    def remove_end(self):
+    def delete_end(self):
         if not self.head:
             return
         if not self.head.next:
@@ -45,11 +45,23 @@ class DoubleLinkedList:
         self.tail.prev.next = None
         self.tail = self.tail.prev
 
+    def delete_middle(self, node):
+        current = self.head.next.key
+        #print(type(current))
+        current = int(current[1:-1])
+        obj = self.obj.pop()
+        #print(type(node))
+        #print(f"current={current}")
+        for i in range(current, node+1):
+            #if node == i and i != obj:
+           
+
+
     def travessia(self):
-        actual = self.head
-        while actual:
-            print(actual.key, end=" ")
-            actual = actual.next
+        current = self.head
+        while current:
+            print(current.key, end=" ")
+            current = current.next
     
     def peek(self, tentativas):
         print(f"\033[91mTENTATIVAS={tentativas}\033[0m")
@@ -57,7 +69,8 @@ class DoubleLinkedList:
         print()
         palpite = int(input("Advinhe o copo: "))
         palpite = [palpite]
-        print(f"{palpite} == {self.obj}")
+        #print(type(palpite))
+        #print(f"{palpite} == {self.obj}")
         if str(palpite) == str(self.obj):
             print(f"Acertou!")
             return
@@ -65,13 +78,17 @@ class DoubleLinkedList:
             tentativas -= 1
             if tentativas != 0:
                 if str(palpite) == str(self.head.key):
-                    print("Entrou AQUI")
-                    self.remove_beggining()
+                    self.delete_front()
                     return self.peek(tentativas)
                     
-                '''elif palpite == self.qtd:
-                    self.remove_end()
-                    return self.peek(tentativas)'''
+                elif str(palpite) == str(self.tail.key):
+                    self.delete_end()
+                    return self.peek(tentativas)
+                
+                else:
+                    palpite = palpite.pop() #tira da lista
+                    self.delete_middle(palpite)
+                    return self.peek(tentativas)
             #print(f"O objeto estava escondido no copo {self.obj}")
 
 
