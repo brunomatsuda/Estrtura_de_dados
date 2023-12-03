@@ -53,15 +53,15 @@ class DoubleLinkedList:
         #obj = self.obj.pop()
         #print(type(node))
         #print(f"current={current}")
-        for i in range(1,node):
-            print(i)
+        for i in range(1, node):
+            #print(i)
             head = head.next
-        print(f"HEAD={head.key}")
+        #print(f"HEAD={head.key}")
         if head.prev:
-            print(f"HEAD.PREV={head.prev.key}")
+            #print(f"HEAD.PREV={head.prev.key}")
             head.prev.next = head.next
         if head.next:
-            print(f"HEAD.NEXT={head.next.key}")
+            #print(f"HEAD.NEXT={head.next.key}")
             head.next.prev = head.prev
         else:
             self.tail = head.prev
@@ -74,7 +74,7 @@ class DoubleLinkedList:
             current = current.next
     
     def peek(self, tentativas):
-        print(f"\033[91mTENTATIVAS={tentativas}\033[0m")
+        print(f"\033[91mTENTATIVAS = {tentativas}\033[0m")
         self.travessia()
         print()
         palpite = int(input("Advinhe o copo: "))
@@ -100,7 +100,7 @@ class DoubleLinkedList:
                     self.delete_middle(palpite)
                     return self.peek(tentativas)
             
-            #print(f"O objeto estava escondido no copo {self.obj}")
+            print(f"O objeto estava escondido no copo {self.obj}")
 
 
 
