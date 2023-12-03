@@ -47,14 +47,24 @@ class DoubleLinkedList:
 
     def delete_middle(self, node):
         current = self.head.next.key
+        head = self.head
         #print(type(current))
-        current = int(current[1:-1])
-        obj = self.obj.pop()
+        current = int(current[1:-1]) 
+        #obj = self.obj.pop()
         #print(type(node))
         #print(f"current={current}")
-        for i in range(current, node+1):
-            #if node == i and i != obj:
-           
+        for i in range(1,node):
+            print(i)
+            head = head.next
+        print(f"HEAD={head.key}")
+        if head.prev:
+            print(f"HEAD.PREV={head.prev.key}")
+            head.prev.next = head.next
+        if head.next:
+            print(f"HEAD.NEXT={head.next.key}")
+            head.next.prev = head.prev
+        else:
+            self.tail = head.prev
 
 
     def travessia(self):
@@ -89,6 +99,7 @@ class DoubleLinkedList:
                     palpite = palpite.pop() #tira da lista
                     self.delete_middle(palpite)
                     return self.peek(tentativas)
+            
             #print(f"O objeto estava escondido no copo {self.obj}")
 
 
