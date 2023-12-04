@@ -104,7 +104,7 @@ class DoubleLinkedList:
 
 
 
-copos = int(input("Qtd de copos iniciais: "))
+copos = int(input("Quantidade de copos iniciais: "))
 lista = DoubleLinkedList(copos)
 
 for i in range(1, copos+1):
