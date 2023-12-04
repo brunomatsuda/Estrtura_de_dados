@@ -9,8 +9,8 @@ class Node:
 class DoubleLinkedList:
     def __init__(self, qtd) -> None:
         self.qtd = qtd
-        self.obj = [4]#[randint(1, copos)]
-        print(f"objeto escondido no copo {self.obj}")
+        self.obj = [randint(1, copos)]
+        #print(f"objeto escondido no copo {self.obj}")
         self.head = None
         self.tail = None
 
