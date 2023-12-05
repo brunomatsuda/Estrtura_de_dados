@@ -13,6 +13,7 @@ class DoubleLinkedList:
         #print(f"objeto escondido no copo {self.obj}")
         self.head = None
         self.tail = None
+        self.cont = 0
 
     def insert_end(self, key):
         copo = Node(key)
@@ -53,17 +54,22 @@ class DoubleLinkedList:
         #obj = self.obj.pop()
         #print(type(node))
         #print(f"current={current}")
-        for i in range(1, node):
-            #print(i)
+        self.cont += 1
+        for i in range(0, node-self.cont):
+            #print(f"i = {i}")
+            #print(f"head = {head.key}")
             head = head.next
         #print(f"HEAD={head.key}")
         if head.prev:
             #print(f"HEAD.PREV={head.prev.key}")
             head.prev.next = head.next
+            #print(f"head.prev.next = {head.prev.next.key}")
         if head.next:
             #print(f"HEAD.NEXT={head.next.key}")
             head.next.prev = head.prev
+            #print(f"head.next.prev = {head.next.prev.key}")
         else:
+            #print(f"Self.tail={self.tail.key}")
             self.tail = head.prev
 
 
@@ -109,6 +115,5 @@ lista = DoubleLinkedList(copos)
 
 for i in range(1, copos+1):
     lista.insert_end(f"[{i}]")
-
 
 lista.peek(3)
