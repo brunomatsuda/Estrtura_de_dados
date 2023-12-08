@@ -13,7 +13,6 @@ class DoubleLinkedList:
         #print(f"objeto escondido no copo {self.obj}")
         self.head = None
         self.tail = None
-        self.cont = 0
 
     def insert_end(self, key):
         copo = Node(key)
@@ -47,29 +46,29 @@ class DoubleLinkedList:
         self.tail = self.tail.prev
 
     def delete_middle(self, node):
-        current = self.head.next.key
-        head = self.head
+        #current = self.head.next.key
         #print(type(current))
-        current = int(current[1:-1]) 
+        #current = int(current[1:-1]) 
         #obj = self.obj.pop()
         #print(type(node))
         #print(f"current={current}")
-        self.cont += 1
+        head = self.head
         
         for i in range(1, node):
-            print(i)
+            #print(i)
             head = head.next
             x = int(head.key[1:-1])
+            #print(f"head1 = {head.key}")
             if x > node:
-                head = head.prev  
+                head = head.prev
 
-        print(f"HEAD={head.key}")
-        print(f"HEAD.PREV={head.prev.key}")
-        print(f"HEAD.NEXT={head.next.key}")
+        #print(f"HEAD={head.key}")
+        #print(f"HEAD.PREV={head.prev.key}")
+        #print(f"HEAD.NEXT={head.next.key}")
         if head.prev or head.next:
             head.prev.next = head.next
             head.next.prev = head.prev.prev 
-            print(f"HEAD.PREV.next={head.prev.next.key}")
+            #print(f"HEAD.PREV.next={head.prev.next.key}")
             #print(f"HEAD.NEXT.prev={head.next.prev.key}")
             
 
