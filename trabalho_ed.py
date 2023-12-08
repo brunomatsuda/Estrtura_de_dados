@@ -55,22 +55,23 @@ class DoubleLinkedList:
         #print(type(node))
         #print(f"current={current}")
         self.cont += 1
-        for i in range(0, node-self.cont):
-            #print(f"i = {i}")
-            #print(f"head = {head.key}")
+        
+        for i in range(1, node):
+            print(i)
             head = head.next
-        #print(f"HEAD={head.key}")
-        if head.prev:
-            #print(f"HEAD.PREV={head.prev.key}")
+            x = int(head.key[1:-1])
+            if x > node:
+                head = head.prev  
+
+        print(f"HEAD={head.key}")
+        print(f"HEAD.PREV={head.prev.key}")
+        print(f"HEAD.NEXT={head.next.key}")
+        if head.prev or head.next:
             head.prev.next = head.next
-            #print(f"head.prev.next = {head.prev.next.key}")
-        if head.next:
-            #print(f"HEAD.NEXT={head.next.key}")
-            head.next.prev = head.prev
-            #print(f"head.next.prev = {head.next.prev.key}")
-        else:
-            #print(f"Self.tail={self.tail.key}")
-            self.tail = head.prev
+            head.next.prev = head.prev.prev 
+            print(f"HEAD.PREV.next={head.prev.next.key}")
+            #print(f"HEAD.NEXT.prev={head.next.prev.key}")
+            
 
 
     def travessia(self):
@@ -115,5 +116,6 @@ lista = DoubleLinkedList(copos)
 
 for i in range(1, copos+1):
     lista.insert_end(f"[{i}]")
+
 
 lista.peek(3)
